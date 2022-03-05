@@ -1,0 +1,62 @@
+{
+    "name": "pbmengine/pbm-video-sdk",
+    "description": "This package is a PHP Rest Client SDK for PBM Video API",
+    "keywords": [
+        "pbm",
+        "PBM Video API",
+        "php-sdk-video-api"
+    ],
+    "homepage": "https://github.com/pbmengine/pbm-video-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Riehl",
+            "email": "systems@personal-business-machine.com",
+            "homepage": "https://personal-business-machine.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/config": "^9.0",
+        "illuminate/contracts": "^9.0",
+        "illuminate/http": "^9.0",
+        "illuminate/support": "^9.0",
+        "spatie/data-transfer-object": "^3.7"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4.0",
+        "orchestra/testbench": "^7.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pbmengine\\Video\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pbmengine\\Video\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pbmengine\\Video\\VideoServiceProvider"
+            ],
+            "aliases": {
+                "Stream": "Pbmengine\\Video\\Facades\\Video"
+            }
+        }
+    }
+}

@@ -9,6 +9,11 @@ class Video extends Resource
     /** @var VideoData */
     protected $dto;
 
+    public function status(): VideoStatus
+    {
+        return $this->api->videoStatus($this->data()->id, $this->data()->project_id);
+    }
+
     public function delete(): string
     {
         return $this->api->deleteVideo($this->data()->id, $this->data()->project_id);

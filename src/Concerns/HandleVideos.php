@@ -40,11 +40,25 @@ trait HandleVideos
             $this->getClient()->get("projects/{$projectId}/videos/{$id}/status")
         );
 
-
         return $this->transformItem(
             $response->json()['data'],
             VideoStatus::class,
             VideoStatusData::class);
+    }
+
+    public function createVideo($projectId, $templateId, string $name, array $data): Video
+    {
+        $data['template_id'] = $templateId;
+        $data['name'] = $name;
+
+        $response = $this->handleResponse(
+            $this->getClient()->post('projects/' . $projectId . '/videos', $data)
+        );
+
+        return $this->transformItem(
+            $response->json()['data'],
+            Video::class,
+            VideoData::class);
     }
 
     public function deleteVideo($id, $projectId): string

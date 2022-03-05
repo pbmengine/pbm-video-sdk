@@ -112,6 +112,10 @@ $data = [
 $video = video()->createVideo(<projectId>, <templateId>, <name>, <data>)
 ````
 
+### Status of Video
+````php
+$status = video()->videoStatus(<video id>, <project id>);
+````
 
 ### Testing
 

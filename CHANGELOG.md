@@ -1,7 +1,7 @@
 # Changelog
 
-All notable changes to `php-sdk-video-api` will be documented in this file
+All notable changes to `pbm-video-sdk` will be documented in this file
 
-## 1.0.0 - 2019-12-04
+## 1.0.0 - 2022-03-05
 
 - initial release

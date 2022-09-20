@@ -22,6 +22,51 @@ class ImageData extends DataTransferObject
     /** @var string */
     public $status_message;
 
+    /** @var string */
+    public $url;
+
+    /** @var string */
+    public $download_url;
+
+    /** @var bool */
+    public $is_public;
+
+    /** @var int */
+    public $filesize;
+
+    /** @var string */
+    public $content_type;
+
+    /** @var string */
+    public $format;
+
+    /** @var string */
+    public $destination;
+
+    /** @var int */
+    public $width;
+
+    /** @var int */
+    public $height;
+
+    /** @var int */
+    public $render_time;
+
+    /** @var string|null */
+    public $render_token;
+
+    /** @var string */
+    public $aspect_ratio;
+
+    /** @var string */
+    public $storage_key;
+
+    /** @var string */
+    public $created_by;
+
+    /** @var Carbon|null */
+    public $created_at;
+
     /** @var Carbon|null */
     public $updated_at;
 
@@ -39,6 +84,10 @@ class ImageData extends DataTransferObject
             }
 
             if ($key == 'deletion_at' && $value !== null) {
+                $value = Carbon::createFromTimestamp(strtotime($value));
+            }
+
+            if ($key == 'updated_at' && $value !== null) {
                 $value = Carbon::createFromTimestamp(strtotime($value));
             }
 
